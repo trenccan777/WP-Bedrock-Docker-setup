@@ -33,7 +33,7 @@ services:
             PMA_PORT: 3306
             MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
         ports:
-            - 192.168.99.100:8080:80
+            - 8080:80
     composer:
         image: composer
         container_name: ${APP_NAME}-composer
