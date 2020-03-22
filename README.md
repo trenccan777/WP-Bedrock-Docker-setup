@@ -24,15 +24,15 @@ or if you have composer installed globally:
 composer create-project roots/bedrock
 ```
 
-5. `cd` into `bedrock` folder and rename `web` folder to  `html`
-6. `cd` into `config` folder and in `application.php` change `$webroot_dir` variable from `web` to `html`
+5. In `bedrock` folder rename `web` folder to  `html`
+6. In `config` folder in `application.php` change `$webroot_dir` variable from `web` to `html`
 7. copy `env` file from `src` folder to `bedrock` and rewrite. 
-8. `cd` into the root folder and run:
+8. From the root run:
 ```
 docker-compose up -d
 ```
 
-9. Wordpress is ready for installation on the localholst IP you have entered in `.env`. 
+9. Wordpress is ready for installation on the localholst IP you have inserted in `.env`. 
 
 
 
