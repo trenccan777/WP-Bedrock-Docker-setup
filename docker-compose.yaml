@@ -1,0 +1,43 @@
+version: '3.3'
+services: 
+    web:
+        build: 
+            context: ./src
+            dockerfile: Dockerfile
+        container_name: ${APP_NAME}-php73
+        depends_on: 
+            - db
+        volumes:
+            - ./src/bedrock:/var/www/
+        ports: 
+            - 80:80
+    db:
+        container_name: ${APP_NAME}-mysql8
+        image: mysql:8.0
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment: 
+            MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+            MYSQL_DATABASE: "${DB_NAME}"
+            MYSQL_USER: "${DB_USER}"
+            MYSQL_PASSWORD: "${DB_PASSWORD}"
+        ports: 
+            - 3306:3306
+    pma:
+        container_name: ${APP_NAME}-phpmyadmin
+        image: phpmyadmin/phpmyadmin:latest
+        depends_on: 
+            - db
+        environment:
+            PMA_HOST: db
+            PMA_PORT: 3306
+            MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+        ports:
+            - 192.168.99.100:8080:80
+    composer:
+        image: composer
+        container_name: ${APP_NAME}-composer
+        working_dir: /var/www/html
+        restart: 'no'
+        volumes:
+            - ./src:/var/www/html/
