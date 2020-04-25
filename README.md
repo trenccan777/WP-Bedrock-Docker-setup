@@ -24,15 +24,36 @@ or if you have composer installed globally:
 composer create-project roots/bedrock
 ```
 
-5. In `bedrock` folder rename `web` folder to  `html`
-6. In `config` folder in `application.php` change `$webroot_dir` variable from `web` to `html`
-7. copy `env` file from `src` folder to `bedrock` and rewrite. 
-8. From the root run:
+5. copy `env` file from `src` folder to `bedrock` and rewrite. 
+
+6. From the root run:
 ```
 docker-compose up -d
 ```
 
-9. Wordpress is ready for installation on the localholst IP you have inserted in `.env`. 
+7. Wordpress is ready for installation on the localholst IP you have inserted in `.env` file.
 
+
+## MySQL
+
+Database dump:
+
+```
+docker exec CONTAINER-NAME sh -c 'exec mysqldump DBNAME -uroot -p"$MYSQL_ROOT_PASSWORD"' > backup.sql
+```
+
+Database import:
+
+docker exec -i CONTAINER-NAME sh -c 'exec mysql -uroot DBNAME -p"$MYSQL_ROOT_PASSWORD"' < backup.sql
+
+## Additional settings
+
+### Apache DOCUMENT ROOT change
+
+If you want to change the default web folder, just rewrite these 3 files:
+
+1. In `bedrock` folder rename `web` folder to  `html`
+2. In `config` folder in `application.php` change `$webroot_dir` variable from `web` to `html`
+3. In `Dockerfile` change `APACHE_DOCUMENT_ROOT`
 
 
