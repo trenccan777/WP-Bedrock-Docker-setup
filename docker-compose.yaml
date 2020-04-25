@@ -21,6 +21,8 @@ services:
             MYSQL_DATABASE: "${DB_NAME}"
             MYSQL_USER: "${DB_USER}"
             MYSQL_PASSWORD: "${DB_PASSWORD}"
+        volumes:
+            - db_data:/var/lib/mysql
         ports: 
             - 3306:3306
     pma:
@@ -41,3 +43,6 @@ services:
         restart: 'no'
         volumes:
             - ./src:/var/www/html/
+            
+volumes:
+    db_data:
