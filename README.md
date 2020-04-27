@@ -7,6 +7,7 @@ Simple and fast Wordpress Bedrock setup on docker.
 - MySQL 8
 - PhpMyAdmin
 - Composer
+- WP-CLI - command line interface for WordPress
 
 ## Installation
 
@@ -33,8 +34,42 @@ docker-compose up -d
 
 7. Wordpress is ready for installation on the localholst IP you have inserted in `.env` file.
 
+## WP-CLI
+
+To use wp-cli, you can easily set alias in `.bashrc` file in your user folder. 
+
+```
+alias wp="docker-compose run --rm wpcli"
+```
+
+Then you can run standard commands. For instance for database manipulation you can run:
+
+Import database:
+``` 
+wp db import databasename.sql
+```
+
+Database dump:
+
+```
+wp db export
+```
+
+Database drop:
+
+```
+wp db drop
+```
+
+Search and replace:
+
+```
+wp search-replace 'old-url' 'new-url'
+```
 
 ## MySQL
+
+If you want, you can use standard MySQL commands. 
 
 Database dump:
 
