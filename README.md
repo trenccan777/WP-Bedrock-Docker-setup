@@ -54,7 +54,7 @@ docker exec -i CONTAINER-NAME sh -c 'exec mysql -uroot DBNAME -p"$MYSQL_ROOT_PAS
 
 If you want to change the default web folder, just rewrite these 3 files:
 
-1. In `bedrock` folder rename `web` folder to  `html`
+1. In `bedrock` folder rename `web` folder to  `html` for instance
 2. In `config` folder in `application.php` change `$webroot_dir` variable from `web` to `html`
 3. In `Dockerfile` change `APACHE_DOCUMENT_ROOT`
 
