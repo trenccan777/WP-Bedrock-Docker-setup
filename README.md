@@ -1,5 +1,5 @@
 # WP Bedrock and Docker
-Simple and fast Wordpress Bedrock setup on docker. This setup has the advantage of using separate container for each service which is litle bit slower on Windows devices. Faster version of this setup using official WordPress image is [here.](https://github.com/trenccan777/wordpress-bedrock-docker-boilerplate/). 
+Simple and fast Wordpress Bedrock setup on docker. This setup has the advantage of using separate container for each service which is little bit slower on Windows devices. Faster version of this setup using official WordPress image is [here](https://github.com/trenccan777/wordpress-bedrock-docker-boilerplate/). 
 
 ## Supported technologies
 - Apache 
